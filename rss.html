@@ -1,9 +1,79 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <style type="text/css">
+              body {
+    background-color: #37536A;
+    color: #ffffff;
+    width: 50vw;
+  }
+
+  .medium-blog-post {
+    display: table;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in, transform 0.2s ease-in;
+    margin-bottom: 50px;
+  }
+
+  .medium-blog-title {
+    display: table-cell;
+    background-color: #FFFFFF;
+    color: #37536A; /*darkblue*/
+    width: 75%;
+    padding: 20px 40px;
+  }
+
+  .medium-blog-title h2 {
+    margin: 0;
+  }
+
+  .medium-blog-date {
+    position: relative;
+    display: table-cell;
+    color: #FFFFFF;
+    background-color: #71C6D2; /*vibblue*/
+    vertical-align: top;
+    height: 100%;
+    padding: 20px;
+    width: 25%;
+  }
+
+  .medium-blog-post:hover {
+    background-color: #71C6D2; /*vibblue*/
+    transform: scale(1.01);
+  }
+        </style>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.js"></script>
+    </head>
 <body>
 
 <h1>My First Heading</h1>
-<p>My first paragraph.</p>
 
+<div id="rss-test-content"></div>
+<script type="application/javascript">
+
+  $(function () {
+    var $content = $('#rss-test-content');
+    var data = {
+      rss_url: 'https://api.zotero.org/groups/4391561/collections/V7BDQZSQ/items/top?direction=desc&format=atom&sort=dateAdded'
+    };
+    $.get('https://api.rss2json.com/v1/api.json', data, function (response) {
+      if (response.status == 'ok') {
+        var output = '';
+          $.each(response.items, function (k, item) {
+            output += '<div class="medium-blog-post" onclick="window.open(\'' + item.guid + '\',\'mywindow\');">'
+            output += '<div class="medium-blog-title"><h2>' + item.title + '</h2></div>';            
+            output += '<div class="medium-blog-date">' + $.format.date(item.pubDate, "MMM dd, yyyy") + '</div>';
+            output += '</div>';
+            
+            return k < 3;
+          });
+        $content.html(output).hide();
+        $content.fadeIn('slow');
+      }
+    });
+  });
+</script>
 </body>
 </html>
