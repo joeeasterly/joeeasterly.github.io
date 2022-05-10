@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+              body {
+                background-color: #ffffff;
+                color: #000000;
+                width: 50vw;
+              }
+        </style>
+    </head>
+<body>
+
+<h1>Sample JSON Page</h1>
+
+<div id="json-content"></div>
+<script type="text/javascript">
+fetch("https://api.zotero.org/groups/4391561/collections/V7BDQZSQ/items/top?direction=desc&format=json&sort=dateAdded")
+.then(response => {
+   return response.json();
+})
+.then(jsondata => console.log(jsondata));
+</script>
+</body>
+</html>
