@@ -7,21 +7,20 @@
       <script src="https://kit.fontawesome.com/a425097a26.js" crossorigin="anonymous"></script>
      <style>
         body {background:#fff;font-family: 'Roboto Slab', serif;}
-        #content{width:35%;margin: auto;}
+        #content{width:35%;margin:auto;}
         a{text-decoration:none;color:#000;}
-        ul{--fa-li-margin:1em;--fa-li-width:1em;}
-        li{line-height:1.5em;}
+        ul{--fa-li-margin:2em;--fa-li-width:2em;}
+        li{margin:0.5em;}
        </style>
     </head>
 <body>
-
   <div id="content">
     <h1>Bibliography</h1>
     <ul class="fa-ul" id="zoteroBiblio"></ul>
   </div>
 <script type="text/javascript">
-    async function get() {
-    let url = 'https://api.zotero.org/groups/4391561/collections/K5MGJEZQ/items/top?direction=asc&format=json&sort=title'
+async function get() {
+    let url = 'https://api.zotero.org/groups/4391561/collections/4I376PCC/items/top?direction=asc&format=json&sort=title'
     let obj = await (await fetch(url)).json();
     //console.log(obj);
     return obj;
@@ -36,6 +35,7 @@ var zoteroJSON;
         var itemType = item['data']['itemType']
         var itemUrl = item['data']['url']
         const li = document.createElement('li')
+        const span = document.createElement('span')
         const i = document.createElement('i')
 
         switch (itemType) {
@@ -161,11 +161,12 @@ var zoteroJSON;
         a.setAttribute('href',itemUrl)
         a.setAttribute('target','_blank')
         a.textContent = title
+        span.setAttribute('class','fa-li')
         zoteroBiblio.appendChild(li)
-        li.appendChild(i)
+        li.appendChild(span)
+        span.appendChild(i)
         li.appendChild(a)
   }
-})()
-</script>
+})()</script>
 </body>
 </html>
