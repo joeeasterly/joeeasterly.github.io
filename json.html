@@ -1,25 +1,185 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style type="text/css">
-              body {
-                background-color: #ffffff;
-                color: #000000;
-                width: 50vw;
-              }
-        </style>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600&display=swap" rel="stylesheet">
+      <script src="https://kit.fontawesome.com/a425097a26.js" crossorigin="anonymous"></script>
+     <style>
+       body {background:#fff;
+      font-family: 'Roboto Slab', serif;
+      }
+      #content{
+        width:35%;
+        margin: auto;
+      }
+      a{text-decoration:none;
+      color:#000;}
+      #zoteroBiblio li{
+        line-height:1.5em;
+      }
+      i.fa-duotone{ }
+
+      #zoteroBiblio{
+        list-style-position: outside;
+      }
+      li{text-indent:-1em;
+      padding:0.25em;}
+       </style>
     </head>
 <body>
 
-<h1>Sample JSON Page</h1>
-
-<div id="json-content"></div>
+  <div id="content">
+    <h1>Bibliography</h1>
+    <ul class="fa-ul" id="zoteroBiblio"></ul>
+  </div>
 <script type="text/javascript">
-fetch("https://api.zotero.org/groups/4391561/collections/V7BDQZSQ/items/top?direction=desc&format=json&sort=dateAdded")
-.then(response => {
-   return response.json();
-})
-.then(jsondata => console.log(jsondata));
+    async function get() {
+    let url = 'https://api.zotero.org/groups/4391561/collections/K5MGJEZQ/items/top?direction=asc&format=json&sort=title'
+    let obj = await (await fetch(url)).json();
+    //console.log(obj);
+    return obj;
+}
+var zoteroJSON;
+(async () => {
+  zoteroJSON = await get()
+  itemCount = zoteroJSON.length
+  const zoteroBiblio = document.getElementById("zoteroBiblio")
+  for (const item of zoteroJSON){
+        var title = item['data']['title']
+        var itemType = item['data']['itemType']
+        var itemUrl = item['data']['url']
+        const li = document.createElement('li')
+        const i = document.createElement('i')
+
+        switch (itemType) {
+          case "artwork":
+            li.setAttribute('class','artwork')
+            break;
+            case "audioRecording":
+            li.setAttribute('class','audioRecording')
+            break;
+            case "bill":
+            li.setAttribute('class','bill')
+            break;
+            case "blogPost":
+            i.setAttribute('class','fa-duotone fa-blog');
+            li.setAttribute('title','blogPost');
+            break;
+            case "book":
+            li.setAttribute('class','book')
+            break;
+            case "bookSection":
+            li.setAttribute('class','bookSection')
+            break;
+            case "case":
+            li.setAttribute('class','case')
+            break;
+            case "conferencePaper":
+            li.setAttribute('class','conferencePaper')
+            break;
+            case "dictionaryEntry":
+            li.setAttribute('class','dictionaryEntry')
+            break;
+            case "document":
+            li.setAttribute('class','document')
+            i.setAttribute('class','fa-duotone fa-file');
+            li.setAttribute('title','blogPost');
+            break;
+            case "email":
+            li.setAttribute('class','email')
+            break;
+            case "encyclopediaArticle":
+            li.setAttribute('class','encyclopediaArticle')
+            break;
+            case "film":
+            li.setAttribute('class','film')
+            break;
+            case "forumPost":
+            li.setAttribute('class','forumPost')
+            break;
+            case "hearing":
+            li.setAttribute('class','hearing')
+            break;
+            case "instantMessage":
+            li.setAttribute('class','instantMessage')
+            break;
+            case "interview":
+            li.setAttribute('class','interview')
+            break;
+            case "journalArticle":
+            li.setAttribute('class','journalArticle')
+            i.setAttribute('class','fa-duotone fa-memo');
+            li.setAttribute('title','journal article');
+            break;
+            case "letter":
+            li.setAttribute('class','letter')
+            break;
+            case "magazineArticle":
+            li.setAttribute('class','magazineArticle')
+            break;
+            case "manuscript":
+            li.setAttribute('class','manuscript')
+            break;
+            case "map":
+            li.setAttribute('class','map')
+            break;
+            case "newspaperArticle":
+            li.setAttribute('class','newspaperArticle')
+            break;
+            case "patent":
+            li.setAttribute('class','patent')
+            break;
+            case "podcast":
+            li.setAttribute('class','podcast')
+            break;
+            case "presentation":
+            li.setAttribute('class','presentation')
+            break;
+            case "radioBroadcast":
+            li.setAttribute('class','radioBroadcast')
+            break;
+            case "report":
+            li.setAttribute('class','report')
+            break;
+            case "software":
+            li.setAttribute('class','software')
+            break;
+            case "statute":
+            li.setAttribute('class','statute')
+            break;
+            case "thesis":
+            li.setAttribute('class','thesis')
+            break;
+            case "tvBroadcast":
+            li.setAttribute('class','tvBroadcast')
+            break;
+            case "videoRecording":
+            li.setAttribute('class','videoRecording')
+            break;
+            case "webpage":
+            li.setAttribute('class','webpage')
+            i.setAttribute('class','fa-duotone fa-browser');
+            li.setAttribute('title','Web Page');
+            break;
+            case "attachment":
+            li.setAttribute('class','attachment')
+            break;
+            case "note":
+            li.setAttribute('class','note')
+            break;
+          default:
+            li.setAttribute('class','default');
+        }
+        const a = document.createElement('a')
+        a.setAttribute('href',itemUrl)
+        a.setAttribute('target','_blank')
+        a.textContent = title
+        zoteroBiblio.appendChild(li)
+        li.appendChild(i)
+        li.appendChild(a)
+  }
+})()
 </script>
 </body>
 </html>
