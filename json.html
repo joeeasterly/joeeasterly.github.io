@@ -16,6 +16,7 @@
 <body>
   <div id="content">
     <h1>Bibliography</h1>
+      <p>This code is also explorable on CodePen: <a href="https://codepen.io/joeeasterly/pen/eYVzBVg" target="_blank"><i class="fa-brands fa-codepen"></i> https://codepen.io/joeeasterly/pen/eYVzBVg</a></p>
     <ul class="fa-ul" id="zoteroBiblio"></ul>
   </div>
 <script type="text/javascript">
@@ -37,7 +38,6 @@ var zoteroJSON;
         const li = document.createElement('li')
         const span = document.createElement('span')
         const i = document.createElement('i')
-
         switch (itemType) {
           case "artwork":
             li.setAttribute('class','artwork')
@@ -54,15 +54,21 @@ var zoteroJSON;
             break;
             case "book":
             li.setAttribute('class','book')
+            i.setAttribute('class','fa-duotone fa-book');
+            li.setAttribute('title','Book');
             break;
             case "bookSection":
             li.setAttribute('class','bookSection')
+            i.setAttribute('class','fa-duotone fa-book');
+            li.setAttribute('title','Book Section');
             break;
             case "case":
             li.setAttribute('class','case')
             break;
             case "conferencePaper":
             li.setAttribute('class','conferencePaper')
+            i.setAttribute('class','fa-duotone fa-presentation-screen');
+            li.setAttribute('title','Conference Paper');
             break;
             case "dictionaryEntry":
             li.setAttribute('class','dictionaryEntry')
@@ -121,6 +127,8 @@ var zoteroJSON;
             break;
             case "presentation":
             li.setAttribute('class','presentation')
+            i.setAttribute('class','fa-duotone fa-presentation-screen');
+            li.setAttribute('title','Presentation');
             break;
             case "radioBroadcast":
             li.setAttribute('class','radioBroadcast')
@@ -142,6 +150,8 @@ var zoteroJSON;
             break;
             case "videoRecording":
             li.setAttribute('class','videoRecording')
+            i.setAttribute('class','fa-duotone fa-video');
+            li.setAttribute('title','Video Recording');
             break;
             case "webpage":
             li.setAttribute('class','webpage')
@@ -156,6 +166,8 @@ var zoteroJSON;
             break;
           default:
             li.setAttribute('class','default');
+            i.setAttribute('class','fa-duotone fa-file');
+            li.setAttribute('title','Web Page');
         }
         const a = document.createElement('a')
         a.setAttribute('href',itemUrl)
@@ -167,6 +179,7 @@ var zoteroJSON;
         span.appendChild(i)
         li.appendChild(a)
   }
-})()</script>
+})()
+    </script>
 </body>
 </html>
