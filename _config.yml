@@ -1,5 +1,8 @@
-remote_theme: joeeasterly/profile
 personal-name: Joe Easterly
 occupation: Digital Scholarship Librarian
 institution: University of Rochester
-title: Joe Easterly from website
+title: Joe Easterly
+sass:
+  style: :compressed
+  # Where you keep your scss files
+  sass_dir: assets/css/
