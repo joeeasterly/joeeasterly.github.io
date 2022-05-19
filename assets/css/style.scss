@@ -1,0 +1,21 @@
+$primary-color: orange;
+$secondary-color: gold;
+$font-stack: 'Open Sans', Helvetica, Sans-Serif;
+$border-thick: 10px;
+$border-bright: orange;
+$border-style: solid;
+$article-width: 60%;
+$article-padding: 20px;
+$article-margin: auto;
+​
+body {
+    color: $primary-color;
+    background: $secondary-color;
+    font-family: $font-stack;
+}
+article {
+    border: $border-thick $border-style $border-bright;
+    width: $article-width;
+    padding: $article-padding;
+    margin: $article-margin;
+}
