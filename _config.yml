@@ -8,4 +8,4 @@ sass:
   style: expanded
   # Where you keep your scss files
   sass_dir: _sass
-theme: jekyll-theme-cayman
+theme: none
