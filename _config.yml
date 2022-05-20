@@ -1,11 +1,10 @@
+remote_theme: joeeasterly/pages_theme_joeeasterly
 personal-name: Joe Easterly
 occupation: Digital Scholarship Librarian
 description: Digital Scholarship Librarian, University of Rochester
 institution: University of Rochester
 title: Joe Easterly
-ignore_theme_config: TRUE
 sass:
   style: expanded
   # Where you keep your scss files
   sass_dir: _sass
-theme: none
