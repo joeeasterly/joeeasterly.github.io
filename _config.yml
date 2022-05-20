@@ -2,7 +2,8 @@ personal-name: Joe Easterly
 occupation: Digital Scholarship Librarian
 institution: University of Rochester
 title: Joe Easterly
+ignore_theme_config: TRUE
 sass:
-  # style: :compressed
+  style: expanded
   # Where you keep your scss files
-  sass_dir: assets/css/
+  sass_dir: _sass
