@@ -4,7 +4,6 @@ sass:
   # Where you keep your scss files
   sass_dir: _sass
 
-layout: "default"
 personal-name: Joe Easterly
 occupation: Digital Scholarship Librarian
 description: Digital Scholarship Librarian, University of Rochester
