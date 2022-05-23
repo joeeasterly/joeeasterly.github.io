@@ -1,4 +1,4 @@
-remote_theme: joeeasterly/pages_theme_joeeasterly@v0.2.0
+remote_theme: joeeasterly/pages_theme_joeeasterly
 sass:
   style: expanded
   # Where you keep your scss files
