@@ -24,7 +24,11 @@ article {
     padding: $article-padding;
     margin: $article-margin;
 }
-h1 {font-family: $headings;}
+h1 {font-family: $headings;
+    font-size:36pt;
+    width:30%;
+    margin:5%;
+    margin-bottom:0;}
 
 #background-video {
     width: 100vw;
@@ -37,3 +41,19 @@ h1 {font-family: $headings;}
     bottom: 0;
     z-index: -1;
   }
+
+  #bio-block{
+    display:block;
+    width: 30%;
+    margin:5%;
+    margin-top:0;
+    background:rgba(239,240,218,0.7)
+    
+  }
+  #links span {
+    padding:18pt;
+  }
+  #links span img{
+    width:18pt;;
+  }
+  #photo{width:100%;}
