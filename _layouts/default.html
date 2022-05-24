@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="/assets/css/style.css">
   </head>
   <body>
+    {% if page.backgroundtype == "video" %}
+      <video id="background-video" autoplay loop muted>
+        <source src="/assets/img/gracie.mp4" type="video/mp4">
+      </video>
+    {% endif %}
     <h1>{{ page.title }}</h1>
     <section>
       {{ content }}
