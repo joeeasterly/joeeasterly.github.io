@@ -3,6 +3,8 @@ sass:
   style: expanded
   # Where you keep your scss files
   sass_dir: _sass
+- name: Sass Build
+  uses: gha-utilities/sass-build@v0.4.9
 
 personal-name: Joe Easterly
 occupation: Digital Scholarship Librarian
