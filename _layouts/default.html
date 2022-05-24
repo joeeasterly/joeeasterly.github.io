@@ -13,7 +13,17 @@
     {% endif %}
     <h1>{{ page.title }}</h1>
     <section>
-      {{ content }}
+      <div id="bio-block">
+        <img id="photo" src="/assets/img/joe.jpg"/>
+        {{ content }}
+      <div id="links">
+        <span id="facebook"><a href="{{site.facebook}}"><img src="/assets/img/facebook-f.svg"/></a></span>
+        <span id="facebook"><a href="{{site.github}}"><img src="/assets/img/github.svg"/></a></span>
+        <span id="facebook"><a href="{{site.twitter}}"><img src="/assets/img/twitter.svg"/></a></span>
+        <span id="facebook"><a href="{{site.youtube}}"><img src="/assets/img/youtube.svg"/></a></span>
+        <span id="facebook"><a href="{{site.calendar}}"><img src="/assets/img/calendar-alt.svg"/></a></span>
+      </div>
+      </div>
     </section>
     <footer>
       &nbsp;
