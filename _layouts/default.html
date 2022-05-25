@@ -7,15 +7,11 @@
   </head>
   <body>
     {% if page.background-type == "video" %}
-      <video id="background-video" autoplay loop muted>
-        <source src="/assets/img/gracie.mp4" type="video/mp4">
-        <source src="/assets/img/drone_20210729_01.mp4" type="video/mp4">
-        <source src="/assets/img/drone_20210729_02.mp4" type="video/mp4">
-      </video>
+      <video id="background-video" autoplay loop muted></video>
     {% endif %}
-    <h1>{{ page.title }}</h1>
     <section>
       <div id="bio-block">
+        <h1>{{ page.title }}</h1>
         <img id="photo" src="/assets/img/joe.jpg"/>
         {{ content }}
       <div id="links">
