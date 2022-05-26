@@ -2,7 +2,7 @@ remote_theme: joeeasterly/pages_theme_joeeasterly
 sass:
   style: expanded
   # Where you keep your scss files
-  sass_dir: _sass
+  sass_dir: assets/sass
 
 personal-name: Joe Easterly
 occupation: Digital Scholarship Librarian
