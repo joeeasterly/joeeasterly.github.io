@@ -7,7 +7,9 @@
   </head>
   <body>
     {% if page.background-type == "video" %}
-    <div class="spinner"></div>
+    <div id="spinner-frame>
+      <div class="spinner"></div>
+    </div>
       <video id="background-video" autoplay muted></video>
     {% endif %}
     <section>
