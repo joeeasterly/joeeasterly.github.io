@@ -2,27 +2,17 @@
 ---
 
 $primary-color: #010101;
-$secondary-color: gold;
+$secondary-color: #ff00cc;
+$tertiary-color: #333399;
+$background-color: #151515;
 $font-stack: 'Roboto Flex', Sans-Serif;
 $headings: 'Permanent Marker', Serif;
-$border-thick: 10px;
-$border-bright: orange;
-$border-style: solid;
-$article-width: 60%;
-$article-padding: 20px;
-$article-margin: auto;
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000");
-
+@import "spinner.css";
 body {
     color: $primary-color;
-    background: $secondary-color;
+    background: $background-color;
     font-family: $font-stack;
-}
-article {
-    border: $border-thick $border-style $border-bright;
-    width: $article-width;
-    padding: $article-padding;
-    margin: $article-margin;
 }
 h1 {font-family: $headings;
     font-size:36pt;
