@@ -8,18 +8,13 @@ videoSource[5] = '/assets/mp4/gracie.mp4';
 let i = 0; // global
 const videoCount = videoSource.length;
 const element = document.getElementById("background-video");
-const bioElement = document.getElementById("bio-background-video");
  
 function videoPlay(videoNum) {
     element.setAttribute("src", videoSource[videoNum]);
     element.autoplay = true;
     element.load();
-    bioElement.setAttribute("src", videoSource[videoNum]);
-    bioElement.autoplay = true;
-    bioElement.load();
 }
 document.getElementById('background-video').addEventListener('ended', myHandler, false);
-document.getElementById('bio-background-video').addEventListener('ended', myHandler, false);
  
 videoPlay(0); // load the first video
 ensureVideoPlays(); // play the video automatically
@@ -36,7 +31,6 @@ function myHandler() {
  
 function ensureVideoPlays() {
     const video = document.getElementById('background-video');
-    const bioVideo = document.getElementById('bio-background-video');
  
     if(!video) return;
     
